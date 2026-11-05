@@ -1,0 +1,21 @@
+# podaci (preuzimaju se prema retinal-vessel-segmentation/README.md)
+data/
+*.rar
+
+# Python
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+retinal-vessel-segmentation/results/metrics/image_stats_cache.pkl
+
+# LaTeX međudatoteke
+izvjestaj/*.aux
+izvjestaj/*.log
+izvjestaj/*.out
+izvjestaj/*.bbl
+izvjestaj/*.blg
+
+# arhive za predaju (generiraju se iz koda i izvještaja)
+predaja_termin2/
+
+.DS_Store
