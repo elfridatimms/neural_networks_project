@@ -1,4 +1,6 @@
-# Tim 07 – Segmentacija krvnih žila mrežnice (Neuronske mreže, FER 2026./2027.)
+# Tim 07 – Segmentacija krvnih žila (Neuronske mreže, FER 2026./2027.)
+
+Trenutačno: fotografije očne pozadine (FIVES + CHASE_DB1), uz moguće kasnije proširenje na žile iz drugih dijelova tijela.
 
 Kod za 2. termin: priprema podataka, podjela train/val/test i analiza skupova FIVES i CHASE_DB1.
 

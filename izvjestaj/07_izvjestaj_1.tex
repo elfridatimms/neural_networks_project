@@ -16,7 +16,7 @@
 
 \begin{document}
 
-\title{Segmentacija krvnih žila mrežnice primjenom konvolucijskih neuronskih mreža\\
+\title{Segmentacija krvnih žila primjenom konvolucijskih neuronskih mreža\\
 \large Izvještaj 1: analiza podataka i pregled literature}
 
 \author{\IEEEauthorblockN{Tim 07: Erna Topalović, Lucija Bralić, Maja Ivandić, Sandro Kreštić}
@@ -26,7 +26,7 @@ Neuronske mreže, ak. god. 2026./2027.}}
 \maketitle
 
 \begin{abstract}
-Cilj projekta je automatska segmentacija krvnih žila na fotografijama očne pozadine pomoću konvolucijskih neuronskih mreža te ispitivanje utjecaja predobrade slike i arhitekture modela. U ovoj fazi detaljno smo analizirali skupove FIVES (800 slika, $2048\times2048$) i CHASE\_DB1 (28 slika, $999\times960$). Analiza je otkrila nekoliko problema važnih za daljnji rad: dvije FIVES slike imaju potpuno prazne maske, na slikama loše kvalitete anotirane su samo vidljive žile, a 22 para slika prikazuju isto oko (gotovo identične maske), od čega pet parova prelazi službenu FIVES podjelu na skup za treniranje i testiranje. Takve slike grupirali smo pri podjeli kako ne bi došlo do curenja podataka. Pokazali smo i da zeleni kanal ima daleko najveći kontrast žila, da piksele žila čini samo oko 10\,\% vidnog polja te da je relativna širina žila jednaka u oba skupa, iako se rezolucije razlikuju 2,2 puta.
+Cilj projekta je automatska segmentacija krvnih žila na medicinskim slikama pomoću konvolucijskih neuronskih mreža te ispitivanje utjecaja predobrade slike i arhitekture modela. Početno se usredotočujemo na fotografije očne pozadine. U ovoj fazi detaljno smo analizirali skupove FIVES (800 slika, $2048\times2048$) i CHASE\_DB1 (28 slika, $999\times960$). Analiza je otkrila nekoliko problema važnih za daljnji rad: dvije FIVES slike imaju potpuno prazne maske, na slikama loše kvalitete anotirane su samo vidljive žile, a 22 para slika prikazuju isto oko (gotovo identične maske), od čega pet parova prelazi službenu FIVES podjelu na skup za treniranje i testiranje. Takve slike grupirali smo pri podjeli kako ne bi došlo do curenja podataka. Pokazali smo i da zeleni kanal ima daleko najveći kontrast žila, da piksele žila čini samo oko 10\,\% vidnog polja te da je relativna širina žila jednaka u oba skupa, iako se rezolucije razlikuju 2,2 puta.
 \end{abstract}
 
 \section{Uvod}
@@ -34,7 +34,7 @@ Krvne žile mrežnice jedine su krvne žile koje se mogu neinvazivno promatrati,
 
 Segmentacija je ovdje binarna klasifikacija svakog piksela (žila ili pozadina). Zadatak je težak jer su žile tanke (često samo nekoliko piksela), slabog kontrasta, a slike se razlikuju po osvjetljenju, oštrini i patološkim promjenama koje mogu izgledati slično žilama.
 
-Kroz projekt planiramo tri eksperimentalne cjeline: (1) osnovni U-Net~\cite{ronneberger2015} na izvornim RGB slikama, (2) usporedbu predobrade (zeleni kanal, CLAHE, CLAHE + gamma korekcija) i (3) U-Net s predtreniranim koderom ResNet-34~\cite{he2016}. Ovaj izvještaj obuhvaća pregled literature (odjeljak~\ref{sec:lit}) i analizu podataka (odjeljak~\ref{sec:data}), a na kraju daje okvirni plan eksperimenata koji proizlazi iz analize (odjeljak~\ref{sec:plan}).
+Početno se usredotočujemo na fotografije očne pozadine, za koje postoje veliki javni skupovi s pikselnim anotacijama. Ako se pokaže da je taj zadatak nedovoljno zahtjevan, razmotrit ćemo proširenje na krvne žile iz drugih dijelova tijela. Kroz projekt planiramo tri eksperimentalne cjeline: (1) osnovni U-Net~\cite{ronneberger2015} na izvornim RGB slikama, (2) usporedbu predobrade (zeleni kanal, CLAHE, CLAHE + gamma korekcija) i (3) U-Net s predtreniranim koderom ResNet-34~\cite{he2016}. Ovaj izvještaj obuhvaća pregled literature (odjeljak~\ref{sec:lit}) i analizu podataka (odjeljak~\ref{sec:data}), a na kraju daje okvirni plan eksperimenata koji proizlazi iz analize (odjeljak~\ref{sec:plan}).
 
 \input{literatura.tex}
 
